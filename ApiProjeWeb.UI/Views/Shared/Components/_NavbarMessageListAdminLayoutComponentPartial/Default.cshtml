@@ -1,0 +1,46 @@
+﻿@model List<ApiProjeWeb.UI.Dtos.MessageDtos.ResultMessageByIsReadFalseDto>
+
+<li class="dropdown dropdown-list-toggle">
+    <a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle">
+        <i data-feather="mail"></i>
+        <span class="badge headerBadge1">@Model.Count</span>
+    </a>
+
+    <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+        <div class="dropdown-header">
+            Mesajlar
+            <div class="float-right">
+                <a href="#">Tümünü Okundu Olarak İşaretle</a>
+            </div>
+        </div>
+
+        <div class="dropdown-list-content dropdown-list-message">
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var item in Model)
+                {
+                    <a href="/Message/MessageDetail/@item.MessegaId" class="dropdown-item">
+                        <span class="dropdown-item-avatar text-white">
+                            <img alt="image" src="/otika-bootstrap-admin-template/assets/img/users/user-1.png" class="rounded-circle">
+                        </span>
+                        <span class="dropdown-item-desc">
+                            <span class="message-user">@item.NameSurname</span>
+                            <span class="time messege-text">@item.Subject</span>
+                            <span class="time">@item.SendData.ToString("dd MMM yyyy - HH:mm")</span>
+                        </span>
+                    </a>
+                }
+            }
+            else
+            {
+                <div class="text-center p-3">
+                    <span class="text-muted">Yeni mesaj bulunmuyor.</span>
+                </div>
+            }
+        </div>
+
+        <div class="dropdown-footer text-center">
+            <a href="#">Tümünü Gör <i class="fas fa-chevron-right"></i></a>
+        </div>
+    </div>
+</li>

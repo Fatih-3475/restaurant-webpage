@@ -1,0 +1,34 @@
+﻿@model List<ApiProjeWeb.UI.Dtos.NotificationDtos.ResultNotificationDto>
+
+<li class="dropdown dropdown-list-toggle">
+    <a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg">
+        <i data-feather="bell" class="bell"></i>
+    </a>
+
+    <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+        <div class="dropdown-header notification-header">
+            <span>Bildirimler</span>
+            <a href="#">Tümünü Okundu Olarak İşaretle</a>
+        </div>
+
+        <div class="dropdown-list-content dropdown-list-icons">
+            @foreach (var item in Model)
+            {
+                <a href="#" class="dropdown-item dropdown-item-unread notification-item">
+                    <span class="dropdown-item-icon bg-primary text-white">
+                        <i class="@item.IconUrl"></i>
+                    </span>
+
+                    <div class="dropdown-item-desc notification-desc">
+                        @item.Description
+                        <div class="time">@item.NotificationDate.ToString("HH:mm")</div>
+                    </div>
+                </a>
+            }
+        </div>
+
+        <div class="dropdown-footer text-center">
+            <a href="#">Tümünü Gör <i class="fas fa-chevron-right"></i></a>
+        </div>
+    </div>
+</li>

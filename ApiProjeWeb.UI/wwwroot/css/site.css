@@ -1,0 +1,73 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+.notification-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.notification-item {
+    display: flex !important;
+    align-items: flex-start;
+    gap: 12px;
+    white-space: normal !important;
+}
+
+.notification-desc {
+    display: block;
+    width: 100%;
+    margin-left: 0 !important;
+    line-height: 20px;
+    white-space: normal !important;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+    .notification-desc .time {
+        display: block;
+        width: 100%;
+        margin-top: 4px;
+        font-size: 10px;
+        color: #aaa;
+        line-height: 16px;
+    }
+
+.dropdown-list-content {
+    max-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.dropdown-item-icon {
+    flex-shrink: 0;
+}

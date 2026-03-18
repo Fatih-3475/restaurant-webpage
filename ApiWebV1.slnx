@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="ApiProjeWeb.UI/ApiProjeWeb.UI.csproj" />
+  <Project Path="ApiWebV1/ApiWebV1.csproj" />
+</Solution>
