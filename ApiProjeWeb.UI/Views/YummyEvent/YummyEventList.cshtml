@@ -1,54 +1,45 @@
-﻿@model List<ResultFeatureDto>
+﻿@model List<ResultYummyEventDto>
 @{
-    ViewData["Title"] = "FeatureList";
+    ViewData["Title"] = "YummyEventList";
     Layout = "~/Views/AdminLayout/Index.cshtml";
     int count = 0;
 }
-
 <section class="section">
     <div class="section-body">
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Öne Çıkan Alan İşlemleri</h4>
+                        <h4>Etkinlik Listesi</h4>
                     </div>
                     <div class="card-body">
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Başlık</th>
-                                    <th scope="col">Alt Başlık</th>
-                                    <th scope="col">Açıklama</th>
+                                    <th scope="col">Etkinlik Başlığı</th>
+                                    <th scope="col">Etkinlik Açıklaması</th>
+                                    <th scope="col">Etkinlik Fiyatı</th>
                                     <th scope="col">Sil</th>
                                     <th scope="col">Güncelle</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                fore
                                 @foreach (var item in Model)
                                 {
                                     count++;
                                     <tr>
                                         <th scope="row">@count</th>
                                         <td>@item.Title</td>
-                                        <td>@item.SubTitle</td>
                                         <td>@item.Description</td>
-                                        <td><a href="/Feature/DeleteFeature/@item.FeatureId/" class="btn btn-danger">Sil</a></td>
-                                        <td><a href="/Feature/UpdateFeature/@item.FeatureId/" class="btn btn-success">Güncelle</a></td>
+                                        <td>@item.Price</td>
+                                        <td><a href="/YummyEvent/DeleteYummyEvent/@item.YummyEventId/" class="btn btn-danger">Sil</a></td>
+                                        <td><a href="/YummyEvent/UpdateYummyEvent/@item.YummyEventId/" class="btn btn-success">Güncelle</a></td>
                                     </tr>
                                 }
                             </tbody>
                         </table>
-                        @if (Model.Count == 1)
-                        {
-                            <a href="#" class="btn btn-info" onclick="return false">Feature Mevcut </a>
-                        }
-                        else
-                        {
-                            <a href="/Feature/CreateFeature/" class="btn btn-info">Yeni Feature Girişi</a>
-                        }
+                        <a href="/YummyEvent/CreateYummyEvent/" class="btn btn-info">Yeni Etkinlik Girişi</a>
                     </div>
                 </div>
             </div>
@@ -57,6 +48,9 @@
     </div>
 </section>
     
+
+
+
 
 
 

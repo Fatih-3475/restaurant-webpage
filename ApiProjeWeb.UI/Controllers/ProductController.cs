@@ -61,14 +61,14 @@ namespace ApiProjeWeb.UI.Controllers
         public async Task<IActionResult> DeleteProduct(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            await client.DeleteAsync("https://localhost:7118/api/Products?id=" + id);
+            await client.DeleteAsync("https://localhost:7118/api/Products/" + id);
             return RedirectToAction("ProductList");
         }
         [HttpGet]
         public async Task<IActionResult> UpdateProduct(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7118/api/Products/GetProducts/" + id);
+            var responseMessage = await client.GetAsync("https://localhost:7118/api/Products/" + id);
             var jsonData = await responseMessage.Content.ReadAsStringAsync();
 
             var value = JsonConvert.DeserializeObject<GetProductByIdDto>(jsonData);

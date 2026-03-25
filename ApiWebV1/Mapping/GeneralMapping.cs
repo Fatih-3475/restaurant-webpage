@@ -2,6 +2,8 @@
 using ApiProjeWeb.Dtos.MessegeDtos;
 using ApiProjeWeb.Dtos.ProductDto;
 using ApiProjeWeb.Entities;
+using ApiWebV1.Dtos.AboutDtos;
+using ApiWebV1.Dtos.AboutsDtos;
 using ApiWebV1.Dtos.CategoryDtos;
 using ApiWebV1.Dtos.NotificationDtos;
 using ApiWebV1.Entities;
@@ -35,6 +37,11 @@ namespace ApiProjeWeb.Mapping
 
             CreateMap<Category,CreateCategoryDto>().ReverseMap();
             CreateMap<Category, UpdateCategoryDto>().ReverseMap();
+
+            CreateMap<About,ResultAboutDto>().ReverseMap();
+            CreateMap<About, GetAboutByIdDto>().ReverseMap();
+            CreateMap<About, CreateAboutDto>().ReverseMap();
+            CreateMap<About, UpdateAboutDto>().ReverseMap();
         }
     }
 }

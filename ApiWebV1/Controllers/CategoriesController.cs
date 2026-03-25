@@ -45,7 +45,7 @@ namespace ApiProjeWeb.Controllers
         }
 
         [HttpGet("GetCategory/{id}")]
-        public IActionResult GetCidategory(int id) 
+        public IActionResult GetCategory(int id) 
         {
             var value = _context.Categories.Find(id);
             return Ok(value); 

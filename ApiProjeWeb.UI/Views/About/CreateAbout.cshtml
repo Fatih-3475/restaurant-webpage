@@ -1,35 +1,38 @@
-﻿@model GetFeatureByIdDto
+﻿@model CreateAboutDto
 @{
-    ViewData["Title"] = "UpdateFeature";
+    ViewData["Title"] = "CreateAbout";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
+
 <section class="section">
     <div class="section-body">
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Öne Çıkan Alan Güncelleme Sayfası</h4>
+                        <h4>Hakkımda Alanı Ekleme Sayfası</h4>
                     </div>
                     <div class="card-body">
                         <form method="post">
-                            <input type="hidden" asp-for="FeatureId"/>
                             <label>Başlık</label>
                             <input type="text" asp-for="Title" class="form-control" />
                             <br />
-                            <label>Alt Başlık</label>
-                            <input type="text" asp-for="SubTitle" class="form-control" />
-                            <br />
-                            <label>Açıklama</label>
-                            <input type="text" asp-for="Description" class="form-control" />
+                            <label>Rezervasyon Numarası</label>
+                            <input type="text" asp-for="ReservationNumber" class="form-control" />
                             <br />
                             <label>Görsel Url</label>
                             <input type="text" asp-for="ImageUrl" class="form-control" />
                             <br />
-                            <label>Video Url (Embed Link)</label>
-                            <input type="text" asp-for="VidioUrl" class="form-control" />
+                            <label>Vidio Kapak Görseli</label>
+                            <input type="text" asp-for="VideoCoverImageUrl" class="form-control" />
                             <br />
-                            <button class="btn btn-success">Öne Çıkan Alanı Güncelle</button>
+                            <label>Vidio Linki(Embed Olarak)</label>
+                            <input type="text" asp-for="VideoUrl" class="form-control" />
+                            <br />
+                            <label>Açıklama</label>
+                            <textarea class="form-control" rows="5" asp-for="Descripton"></textarea>
+                            <br />
+                            <button class="btn btn-primary">Hakkımda Alanı Oluştur</button>
                         </form>
                     </div>
                 </div>
