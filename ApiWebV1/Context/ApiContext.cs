@@ -29,7 +29,7 @@ namespace ApiProjeWeb.Context
 
             modelBuilder.Entity<Messega>()
                 .Property(x => x.SendData)
-                .HasColumnType("timestamp without time zone");
+                .HasColumnType("timestamp with time zone");
         }
     }
 }
