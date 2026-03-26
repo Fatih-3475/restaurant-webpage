@@ -5,7 +5,10 @@ using ApiProjeWeb.Entities;
 using ApiWebV1.Dtos.AboutDtos;
 using ApiWebV1.Dtos.AboutsDtos;
 using ApiWebV1.Dtos.CategoryDtos;
+using ApiWebV1.Dtos.ImageDtos;
+using ApiWebV1.Dtos.Imagestos;
 using ApiWebV1.Dtos.NotificationDtos;
+using ApiWebV1.Dtos.ReservationDtos;
 using ApiWebV1.Entities;
 using AutoMapper;
 namespace ApiProjeWeb.Mapping
@@ -42,6 +45,17 @@ namespace ApiProjeWeb.Mapping
             CreateMap<About, GetAboutByIdDto>().ReverseMap();
             CreateMap<About, CreateAboutDto>().ReverseMap();
             CreateMap<About, UpdateAboutDto>().ReverseMap();
+
+
+            CreateMap<Reservation, ResultReservationDto>().ReverseMap();
+            CreateMap<Reservation, UpdateReservationDto>().ReverseMap();
+            CreateMap<Reservation, GetReservationByIdDto>().ReverseMap();
+            CreateMap<Reservation, CreateReservationDto>().ReverseMap();
+
+            CreateMap<Image, ResultImageDto>().ReverseMap();
+            CreateMap<Image, CreateImageDto>().ReverseMap();
+            CreateMap<Image, UpdateImageDto>().ReverseMap();
+            CreateMap<Image, GetImageByIdDto>().ReverseMap();
         }
     }
 }

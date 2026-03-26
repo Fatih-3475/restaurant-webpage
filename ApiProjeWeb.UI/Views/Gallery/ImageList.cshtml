@@ -1,0 +1,84 @@
+﻿@model List<ResultImageDto>
+@{
+    ViewData["Title"] = "Görsel Listesi";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<style>
+    /* Resimlerin hepsinin aynı boyutta ve düzgün görünmesi için */
+    .portfolio-thumb img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+    .portfolio-item {
+        margin-bottom: 30px;
+    }
+</style>
+
+<section class="section">
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Görsel Galerisi</h4>
+                        <div class="card-header-action">
+                            <a href="/Admin/Image/CreateImage" class="btn btn-primary"><i class="fa fa-plus"></i> Yeni Görsel Ekle</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="bootstrap snippet">
+                            <section id="portfolio" class="gray-bg">
+                                <div class="projects-container">
+                                    <div class="row">
+                                        @if (Model != null && Model.Count > 0)
+                                        {
+                                            @foreach (var item in Model)
+                                            {
+                                                <article class="col-md-4 col-sm-6 portfolio-item">
+                                                    <div class="portfolio-thumb">
+                                                        <a href="@item.ImageUrl" target="_blank" class="main-link">
+                                                            <img class="img-responsive img-center" src="@item.ImageUrl" alt="@item.Title">
+                                                            <span class="project-title">@item.Title</span>
+                                                            <span class="overlay-mask"></span>
+                                                        </a>
+                                                        <a class="enlarge" href="@item.ImageUrl" title="@item.Title">
+                                                            <i class="fa fa-expand fa-fw"></i>
+                                                        </a>
+                                                        <a class="link" href="/Admin/Image/UpdateImage/@item.ImageId">
+                                                            <i class="fa fa-edit fa-fw"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="mt-2 text-center">
+                                                        <a href="/Admin/Image/DeleteImage/@item.ImageId" 
+                                                           class="btn btn-danger btn-sm" 
+                                                           onclick="return confirm('Bu görseli silmek istediğinize emin misiniz?')">
+                                                            <i class="fa fa-trash"></i> Sil
+                                                        </a>
+                                                        <a href="/Admin/Image/UpdateImage/@item.ImageId" class="btn btn-info btn-sm">
+                                                            <i class="fa fa-pen"></i> Güncelle
+                                                        </a>
+                                                    </div>
+                                                </article>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <div class="col-12">
+                                                <div class="alert alert-warning text-center">
+                                                    Henüz hiç görsel eklenmemiş.
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
