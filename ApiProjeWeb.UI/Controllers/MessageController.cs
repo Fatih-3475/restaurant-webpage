@@ -34,10 +34,12 @@ namespace ApiProjeWeb.UI.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public async Task<IActionResult> CreateMessage(CreateMessageDto createMessageDto)
         {
+            createMessageDto.SendData = DateTime.UtcNow;
+            createMessageDto.IsRead = false;
+
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createMessageDto);
             var stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
@@ -46,10 +48,10 @@ namespace ApiProjeWeb.UI.Controllers
 
             if (responseMessage.IsSuccessStatusCode)
             {
-                return RedirectToAction("MessageList");
+                return RedirectToAction("Index", "Default");
             }
 
-            return View(createMessageDto);
+            return RedirectToAction("Index", "Default");
         }
 
         public async Task<IActionResult> DeleteMessage(int id)

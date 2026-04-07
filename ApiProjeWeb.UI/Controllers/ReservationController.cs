@@ -33,8 +33,11 @@ namespace ApiProjeWeb.UI.Controllers
         }
 
         [HttpPost]
+        [HttpPost]
         public async Task<IActionResult> CreateReservation(CreateReservationDto createReservationDto)
         {
+            createReservationDto.ReservationStatus = "Beklemede";
+
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createReservationDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
@@ -43,10 +46,10 @@ namespace ApiProjeWeb.UI.Controllers
 
             if (responseMessage.IsSuccessStatusCode)
             {
-                return RedirectToAction("ReservationList");
+                return RedirectToAction("Index", "Default");
             }
 
-            return View(createReservationDto);
+            return RedirectToAction("Index", "Default");
         }
 
         public async Task<IActionResult> DeleteReservation(int id)

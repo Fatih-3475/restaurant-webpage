@@ -19,7 +19,7 @@ namespace ApiProjeWeb.ValidationRules
 
             RuleFor(x => x.ProductDescription)
                 .NotEmpty().WithMessage("Ürün açıklaması boş geçilemez!")
-                .MaximumLength(22).WithMessage("Ürün açıklaması minimum 22 karakter girişli olmalı")
+                .MinimumLength(22).WithMessage("Ürün açıklaması minimum 22 karakter girişli olmalı")
                 .MaximumLength(500).WithMessage("Ürüm açıklaması maximum 500 karakter girişli olmalı");
         }
     }
