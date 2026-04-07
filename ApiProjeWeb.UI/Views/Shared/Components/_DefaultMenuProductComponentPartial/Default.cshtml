@@ -2,10 +2,8 @@
 
 <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
 
-
-
-    <div class="tab-pane fade active show" id="menu-starters">
-
+    <!-- Tüm Menü -->
+    <div class="tab-pane fade active show" id="menu-all">
         <div class="tab-header text-center">
             <p>Menü</p>
             <h3>Tüm Lezzetler</h3>
@@ -15,16 +13,39 @@
             @foreach (var item in Model)
             {
                 <div class="col-lg-4 menu-item">
-                    <a href="@item.ProductUrl" class="glightbox"><img src="@item.ProductUrl" class="menu-img img-fluid" alt=""></a>
+                    <a href="@item.ProductUrl" class="glightbox">
+                        <img src="@item.ProductUrl" class="menu-img img-fluid" alt="">
+                    </a>
                     <h4>@item.ProductName</h4>
-                    <p class="ingredients">
-                        @item.ProductDescription
-                    </p>
-                    <p class="price">
-                        @item.Price ₺
-                    </p>
+                    <p class="ingredients">@item.ProductDescription</p>
+                    <p class="price">@item.Price ₺</p>
                 </div>
             }
         </div>
     </div>
+
+    <!-- Kategorilere göre -->
+    @foreach (var categoryGroup in Model.GroupBy(x => new { x.CategoryId, x.CategoryName }))
+    {
+        <div class="tab-pane fade" id="menu-@categoryGroup.Key.CategoryId">
+            <div class="tab-header text-center">
+                <p>Menü</p>
+                <h3>@categoryGroup.Key.CategoryName</h3>
+            </div>
+
+            <div class="row gy-5">
+                @foreach (var item in categoryGroup)
+                {
+                    <div class="col-lg-4 menu-item">
+                        <a href="@item.ProductUrl" class="glightbox">
+                            <img src="@item.ProductUrl" class="menu-img img-fluid" alt="">
+                        </a>
+                        <h4>@item.ProductName</h4>
+                        <p class="ingredients">@item.ProductDescription</p>
+                        <p class="price">@item.Price ₺</p>
+                    </div>
+                }
+            </div>
+        </div>
+    }
 </div>

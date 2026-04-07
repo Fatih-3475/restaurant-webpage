@@ -30,8 +30,12 @@ namespace ApiWebV1.Controllers
         public IActionResult CreateReservation(CreateReservationDto createReservationDto)
         {
             var value = _mapper.Map<Reservation>(createReservationDto);
+
+            value.ReservationDate = DateTime.SpecifyKind(value.ReservationDate, DateTimeKind.Utc);
+
             _context.Reservations.Add(value);
             _context.SaveChanges();
+
             return Ok("Rezervasyon ekleme işlemi başarılı");
         }
 

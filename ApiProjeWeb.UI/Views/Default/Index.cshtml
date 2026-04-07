@@ -1,5 +1,7 @@
 ﻿@model List<ApiProjeWeb.UI.Dtos.ServiceDtos.ResultServiceDto>
-
+@{
+    Layout = null;
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +10,7 @@
 
 <body class="index-page">
 
-    @await Component.InvokeAsync("_NavbarDefaultComponentPartial") 
+    @await Component.InvokeAsync("_NavbarDefaultComponentPartial")
     
 
     <main class="main">
@@ -19,15 +21,15 @@
             <div class="container">
                 <div class="row gy-4 justify-content-center justify-content-lg-between">
                     <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                        <h1 data-aos="fade-up">Enjoy Your Healthy<br>Delicious Food</h1>
-                        <p data-aos="fade-up" data-aos-delay="100">We are team of talented designers making websites with Bootstrap</p>
+                        <h1 data-aos="fade-up">Lezzetin Sanatla<br>Buluştuğu Nokta</h1>
+                        <p data-aos="fade-up" data-aos-delay="100">Şehrin en sevilen lezzet duraklarından birinde yerinizi ayırtın. Kalite ve tazelik her tabakta.</p>
                         <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-                            <a href="#book-a-table" class="btn-get-started">Booka a Table</a>
-                            <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+                            <a href="#book-a-table" class="btn-get-started">Rezervasyon Yap</a>
+                            <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Hikayemizi İzle</span></a>
                         </div>
                     </div>
                     <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
-                        <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
+                        <img src="/yummy-red-1.0.0/assets/img/hero-img.png" class="img-fluid animated" alt="">
                     </div>
                 </div>
             </div>
@@ -38,39 +40,38 @@
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>About Us<br></h2>
-                <p><span>Learn More</span> <span class="description-title">About Us</span></p>
+                <h2>Hakkımızda<br></h2>
+                <p><span>Daha Fazla</span> <span class="description-title">Bilgi Edin</span></p>
             </div><!-- End Section Title -->
 
             <div class="container">
 
                 <div class="row gy-4">
                     <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
-                        <img src="assets/img/about.jpg" class="img-fluid mb-4" alt="">
-                        <div class="book-a-table">
-                            <h3>Book a Table</h3>
+                        <img src="/yummy-red-1.0.0/assets/img/about.jpg" class="img-fluid mb-4" alt="">
+                        <div class="book-a-table justify-content-center">
+                            <h3>Rezervasyon Yap</h3>
                             <p>+1 5589 55488 55</p>
                         </div>
                     </div>
                     <div class="col-lg-5" data-aos="fade-up" data-aos-delay="250">
                         <div class="content ps-0 ps-lg-5">
                             <p class="fst-italic">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                magna aliqua.
+                                Lezzet yolculuğumuz, geleneksel tariflerin modern dokunuşlarla buluştuğu noktada başladı. İZ olarak, her tabağımızda damağınızda unutulmaz bir anı bırakmayı amaçlıyoruz.
                             </p>
                             <ul>
-                                <li><i class="bi bi-check-circle-fill"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-                                <li><i class="bi bi-check-circle-fill"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-                                <li><i class="bi bi-check-circle-fill"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
+                                <li><i class="bi bi-check-circle-fill"></i> <span>Doğallığın İzindeyiz: Tüm malzemelerimizi yerel üreticilerden ve en taze haliyle mevsiminde temin ediyoruz.</span></li>
+                                <li><i class="bi bi-check-circle-fill"></i> <span>Ustalıkla Hazırlanan Reçeteler: Şeflerimizin yıllara dayanan tecrübesiyle, her tarifimizi bir sanat eserine dönüştürüyoruz.</span></li>
+                                <li><i class="bi bi-check-circle-fill"></i> <span>Sürdürülebilir Lezzet Anlayışı: Doğaya duyduğumuz saygıyla, mutfağımızda israfı minimize ediyor ve en temiz üretim süreçlerini izliyoruz.</span></li>
                             </ul>
                             <p>
-                                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+                                Sadece bir yemek değil, bir deneyim sunuyoruz. Misafirlerimizin hafızasında yer eden o sıcak atmosferimiz ve imza lezzetlerimizle, şehrin gastronomik haritasında derin bir İZ bırakmak için her gün aynı tutkuyla kapılarımızı açıyoruz. Bizim için her masa yeni bir hikaye, her tabak ise bu hikayeye atılan bir imza.
                             </p>
-
+                            <br />
                             <div class="position-relative mt-4">
                                 <img src="assets/img/about-2.jpg" class="img-fluid" alt="">
                                 <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
+                               
                             </div>
                         </div>
                     </div>
@@ -88,27 +89,35 @@
 
                     <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="why-box">
-                            <h3>Neden Yummy</h3>
+                            <h3>Neden İz</h3>
                             <p>
-                                Yummy, adını yalnızca lezzeti ifade eden bir kelimeden değil, misafirlerine yaşatmak istediği deneyimden alır. Bizim için “yummy”, ilk lokmada yüzünüzde oluşan gülümseme, sofrada paylaşılan keyifli anlar ve damakta kalan unutulmaz tatların ortak adıdır. Bu yüzden Yummy’de her tabak özenle hazırlanır, her tarif taze ve kaliteli malzemelerle hayat bulur. Amacımız yalnızca yemek sunmak değil; sizi lezzet, sıcaklık ve samimiyetle dolu bir sofrada buluşturmaktır.
+                                İZ, adını yalnızca bir isimden değil, misafirlerinde bıraktığı izden almaktadır. İşletme, sunduğu hizmet ile sadece yemek ihtiyacını karşılamayı değil, aynı zamanda kaliteli ve keyifli bir deneyim sunmayı amaçlamaktadır.
+
+                                Hazırlanan tüm ürünler, alanında deneyimli personel tarafından özenle hazırlanmakta ve servis sürecine kadar kontrol altında tutulmaktadır. Bu sayede sunulan lezzetlerde kalite ve süreklilik sağlanmaktadır.
+
+                                Kullanılan malzemeler günlük ve taze olarak temin edilmekte, uygun koşullarda saklanarak gıda güvenliği ön planda tutulmaktadır.
+
+                                İZ, sıcak ve samimi ortamı ile misafirlerine sadece yemek değil, aynı zamanda rahat ve memnuniyet odaklı bir deneyim sunmaktadır.
                             </p>
                             <div class="text-center">
-                                <a href="#" class="more-btn"><span>Learn More</span> <i class="bi bi-chevron-right"></i></a>
+                                <a href="#" class="more-btn"><span>Daha Fazla Bİlgi Edin</span> <i class="bi bi-chevron-right"></i></a>
                             </div>
                         </div>
                     </div><!-- End Why Box -->
 
                     <div class="col-lg-8 d-flex align-items-stretch">
                         <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
-                            @foreach(var item in Model)
-                             {
-                            <div class="col-xl-4">
-                                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-                                    <i class="@item.IconUrl"></i>
-                                    <h4>@item.Title</h4>
-                                    <p>@item.Description</p>
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-xl-4">
+                                    <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                                        <i class="@item.IconUrl"></i>
+                                        <h4>@item.Title</h4>
+                                        <p>@item.Description</p>
+                                    </div>
                                 </div>
-                            </div><!-- End Icon Box -->
+                            
+                                <!-- End Icon Box -->
                             }
 
                         </div>
@@ -122,7 +131,7 @@
         <!-- Stats Section -->
         <section id="stats" class="stats section dark-background">
 
-            <img src="assets/img/stats-bg.jpg" alt="" data-aos="fade-in">
+            <img src="/yummy-red-1.0.0/assets/img/stats-bg.jpg" alt="" data-aos="fade-in">
 
             <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
 
@@ -131,28 +140,28 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
                             <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Clients</p>
+                            <p>Müşteriler</p>
                         </div>
                     </div><!-- End Stats Item -->
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
                             <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Projects</p>
+                            <p>Projeler</p>
                         </div>
                     </div><!-- End Stats Item -->
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
                             <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Hours Of Support</p>
+                            <p>Destek Saatleri</p>
                         </div>
                     </div><!-- End Stats Item -->
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
                             <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Workers</p>
+                            <p>İşçiler</p>
                         </div>
                     </div><!-- End Stats Item -->
 
@@ -176,49 +185,57 @@
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>Book A Table</h2>
-                <p><span>Book Your</span> <span class="description-title">Stay With Us<br></span></p>
+                <h2>REZERVASYON</h2>
+                <p><span>Rezervasyonunuzu</span> <span class="description-title">Oluşturun<br></span></p>
             </div><!-- End Section Title -->
 
             <div class="container">
 
                 <div class="row g-0" data-aos="fade-up" data-aos-delay="100">
 
-                    <div class="col-lg-4 reservation-img" style="background-image: url(assets/img/reservation.jpg);"></div>
+                    <div class="col-lg-4 reservation-img" style="background-image: url(/yummy-red-1.0.0/assets/img/reservation.jpg);"></div>
 
-                    <div class="col-lg-8 d-flex align-items-center reservation-form-bg" data-aos="fade-up" data-aos-delay="200">
-                        <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form">
+                    <div class="col-lg-8 d-flex align-items-center reservation-form-bg" data-aos="fade-up" data-aos-delay="200" style="padding:10px">
+                        <form method="post" asp-controller="Reservation" asp-action="CreateReservation" class="custom-form">
+
                             <div class="row gy-4">
+
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
+                                    <input type="text" name="NameSurname" class="form-control" placeholder="İsim Soyisim" required style="font-size:14px; padding:10px 15px; border-radius:0; border:1px solid #ccc; width:100%; box-shadow:none; background:#fff;">
                                 </div>
+
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+                                    <input type="email" name="Email" class="form-control" placeholder="Email" required style="font-size:14px; padding:10px 15px; border-radius:0; border:1px solid #ccc; width:100%; box-shadow:none; background:#fff;">
                                 </div>
+
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" required="">
+                                    <input type="text" name="PhoneNumber" class="form-control" placeholder="Telefon" required style="font-size:14px; padding:10px 15px; border-radius:0; border:1px solid #ccc; width:100%; box-shadow:none; background:#fff;">
                                 </div>
+
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="date" name="date" class="form-control" id="date" placeholder="Date" required="">
+                                    <input type="date" name="ReservationDate" class="form-control" required style="font-size:14px; padding:10px 15px; border-radius:0; border:1px solid #ccc; width:100%; box-shadow:none; background:#fff;">
                                 </div>
+
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="time" class="form-control" name="time" id="time" placeholder="Time" required="">
+                                    <input type="time" name="ReservationTime" class="form-control" required style="font-size:14px; padding:10px 15px; border-radius:0; border:1px solid #ccc; width:100%; box-shadow:none; background:#fff;">
                                 </div>
+
                                 <div class="col-lg-4 col-md-6">
-                                    <input type="number" class="form-control" name="people" id="people" placeholder="# of people" required="">
+                                    <input type="number" name="CountOfPeople" class="form-control" placeholder="Kişi Sayısı" required style="font-size:14px; padding:10px 15px; border-radius:0; border:1px solid #ccc; width:100%; box-shadow:none; background:#fff;">
                                 </div>
+
                             </div>
 
                             <div class="form-group mt-3">
-                                <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+                                <textarea class="form-control" name="Message" rows="5" placeholder="Mesajınız" style="font-size:14px; padding:10px 15px; border-radius:0; border:1px solid #ccc; width:100%; box-shadow:none; background:#fff; min-height:120px;"></textarea>
                             </div>
 
+                            <input type="hidden" name="ReservationStatus" value="Beklemede" />
+
                             <div class="text-center mt-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
-                                <button type="submit">Book a Table</button>
+                                <button type="submit" style="color:#ffffff; background:#ce1212; border:0; padding:14px 60px; border-radius:4px; cursor:pointer; font-size:15px; transition:0.4s;">Rezervasyon Yap</button>
                             </div>
+
                         </form>
                     </div><!-- End Reservation Form -->
 
@@ -232,8 +249,8 @@
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>Gallery</h2>
-                <p><span>Check</span> <span class="description-title">Our Gallery</span></p>
+                <h2>Galeri</h2>
+                <p><span>Galerimizi</span> <span class="description-title">Keşfedin</span></p>
             </div><!-- End Section Title -->
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -241,43 +258,43 @@
                 <div class="swiper init-swiper">
                     <script type="application/json" class="swiper-config">
                         {
-                          "loop": true,
-                          "speed": 600,
-                          "autoplay": {
-                            "delay": 5000
-                          },
-                          "slidesPerView": "auto",
-                          "centeredSlides": true,
-                          "pagination": {
-                            "el": ".swiper-pagination",
-                            "type": "bullets",
-                            "clickable": true
-                          },
-                          "breakpoints": {
-                            "320": {
-                              "slidesPerView": 1,
-                              "spaceBetween": 0
-                            },
-                            "768": {
-                              "slidesPerView": 3,
-                              "spaceBetween": 20
-                            },
-                            "1200": {
-                              "slidesPerView": 5,
-                              "spaceBetween": 20
-                            }
-                          }
+                        "loop": true,
+                        "speed": 600,
+                        "autoplay": {
+                        "delay": 5000
+                        },
+                        "slidesPerView": "auto",
+                        "centeredSlides": true,
+                        "pagination": {
+                        "el": ".swiper-pagination",
+                        "type": "bullets",
+                        "clickable": true
+                        },
+                        "breakpoints": {
+                        "320": {
+                        "slidesPerView": 1,
+                        "spaceBetween": 0
+                        },
+                        "768": {
+                        "slidesPerView": 3,
+                        "spaceBetween": 20
+                        },
+                        "1200": {
+                        "slidesPerView": 5,
+                        "spaceBetween": 20
+                        }
+                        }
                         }
                     </script>
                     <div class="swiper-wrapper align-items-center">
-                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-1.jpg"><img src="assets/img/gallery/gallery-1.jpg" class="img-fluid" alt=""></a></div>
-                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-2.jpg"><img src="assets/img/gallery/gallery-2.jpg" class="img-fluid" alt=""></a></div>
-                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-3.jpg"><img src="assets/img/gallery/gallery-3.jpg" class="img-fluid" alt=""></a></div>
-                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-4.jpg"><img src="assets/img/gallery/gallery-4.jpg" class="img-fluid" alt=""></a></div>
-                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-5.jpg"><img src="assets/img/gallery/gallery-5.jpg" class="img-fluid" alt=""></a></div>
-                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-6.jpg"><img src="assets/img/gallery/gallery-6.jpg" class="img-fluid" alt=""></a></div>
-                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-7.jpg"><img src="assets/img/gallery/gallery-7.jpg" class="img-fluid" alt=""></a></div>
-                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-8.jpg"><img src="assets/img/gallery/gallery-8.jpg" class="img-fluid" alt=""></a></div>
+                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="/yummy-red-1.0.0/assets/img/gallery/gallery-1.jpg"><img src="assets/img/gallery/gallery-1.jpg" class="img-fluid" alt=""></a></div>
+                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="/yummy-red-1.0.0/assets/img/gallery/gallery-2.jpg"><img src="assets/img/gallery/gallery-2.jpg" class="img-fluid" alt=""></a></div>
+                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="/yummy-red-1.0.0/assets/img/gallery/gallery-3.jpg"><img src="assets/img/gallery/gallery-3.jpg" class="img-fluid" alt=""></a></div>
+                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="/yummy-red-1.0.0/assets/img/gallery/gallery-4.jpg"><img src="assets/img/gallery/gallery-4.jpg" class="img-fluid" alt=""></a></div>
+                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="/yummy-red-1.0.0/assets/img/gallery/gallery-5.jpg"><img src="assets/img/gallery/gallery-5.jpg" class="img-fluid" alt=""></a></div>
+                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="/yummy-red-1.0.0/assets/img/gallery/gallery-6.jpg"><img src="assets/img/gallery/gallery-6.jpg" class="img-fluid" alt=""></a></div>
+                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="/yummy-red-1.0.0/assets/img/gallery/gallery-7.jpg"><img src="assets/img/gallery/gallery-7.jpg" class="img-fluid" alt=""></a></div>
+                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="/yummy-red-1.0.0/assets/img/gallery/gallery-8.jpg"><img src="assets/img/gallery/gallery-8.jpg" class="img-fluid" alt=""></a></div>
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
@@ -291,7 +308,7 @@
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
                 <h2>Contact</h2>
-                <p><span>Need Help?</span> <span class="description-title">Contact Us</span></p>
+                <p><span>Yardıma mı ihtiyacınız var?</span> <span class="description-title">Bizimle iletişime geçin</span></p>
             </div><!-- End Section Title -->
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -300,14 +317,18 @@
                     <iframe style="width: 100%; height: 400px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen=""></iframe>
                 </div><!-- End Google Maps -->
 
-                <div class="row gy-4">
+                <div class="row gy-4" style="padding:5px">
 
                     <div class="col-md-6">
                         <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
                             <i class="icon bi bi-geo-alt flex-shrink-0"></i>
                             <div>
-                                <h3>Address</h3>
-                                <p>A108 Adam Street, New York, NY 535022</p>
+                                <h3>Adres</h3>
+                                <p>
+                                    Cumhuriyet Caddesi No:29
+
+                                    34100 - Bostancı/İstanbul
+                                </p>
                             </div>
                         </div>
                     </div><!-- End Info Item -->
@@ -316,7 +337,7 @@
                         <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="300">
                             <i class="icon bi bi-telephone flex-shrink-0"></i>
                             <div>
-                                <h3>Call Us</h3>
+                                <h3>İletişim</h3>
                                 <p>+1 5589 55488 55</p>
                             </div>
                         </div>
@@ -326,7 +347,7 @@
                         <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="400">
                             <i class="icon bi bi-envelope flex-shrink-0"></i>
                             <div>
-                                <h3>Email Us</h3>
+                                <h3>Email</h3>
                                 <p>info@example.com</p>
                             </div>
                         </div>
@@ -336,43 +357,45 @@
                         <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="500">
                             <i class="icon bi bi-clock flex-shrink-0"></i>
                             <div>
-                                <h3>Opening Hours<br></h3>
-                                <p><strong>Mon-Sat:</strong> 11AM - 23PM; <strong>Sunday:</strong> Closed</p>
+                                <h3>
+                                    Çalışma Saatlerimiz<br>
+                                </h3>
+                                <p><strong>Pazartesi - Cuma::</strong> 9:00 - 24:00; <strong>Pazar:</strong> Kapalı</p>
                             </div>
                         </div>
                     </div><!-- End Info Item -->
 
                 </div>
 
-                <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="600">
-                    <div class="row gy-4">
+                <form method="post" asp-controller="Message" asp-action="CreateMessage" class="custom-form">
+
+                    <div class="row gy-4"style="padding:5px">
 
                         <div class="col-md-6">
-                            <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                            <input type="text" name="NameSurname" class="form-control" placeholder="İsim Soyisim" required style="font-size:14px; padding:10px 15px; border-radius:0; border:1px solid #ccc; width:100%; box-shadow:none; background:#fff;">
                         </div>
 
-                        <div class="col-md-6 ">
-                            <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                        </div>
-
-                        <div class="col-md-12">
-                            <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                        <div class="col-md-6">
+                            <input type="email" name="Email" class="form-control" placeholder="Email" required style="font-size:14px; padding:10px 15px; border-radius:0; border:1px solid #ccc; width:100%; box-shadow:none; background:#fff;">
                         </div>
 
                         <div class="col-md-12">
-                            <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                            <input type="text" name="Subject" class="form-control" placeholder="Başlık" required style="font-size:14px; padding:10px 15px; border-radius:0; border:1px solid #ccc; width:100%; box-shadow:none; background:#fff;">
                         </div>
+
+                        <div class="col-md-12">
+                            <textarea class="form-control" name="MessageDetails" rows="6" placeholder="Mesajınız" required style="font-size:14px; padding:10px 15px; border-radius:0; border:1px solid #ccc; width:100%; box-shadow:none; background:#fff; min-height:120px;"></textarea>
+                        </div>
+
+                        <input type="hidden" name="IsRead" value="false" />
 
                         <div class="col-md-12 text-center">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                            <button type="submit">Send Message</button>
+                            <button type="submit" style="color:#ffffff; background:#ce1212; border:0; padding:14px 60px; border-radius:4px; cursor:pointer; font-size:15px; transition:0.4s;">Mesaj Gönder</button>
                         </div>
 
                     </div>
-                </form><!-- End Contact Form -->
+
+                </form>
 
             </div>
 
@@ -380,7 +403,7 @@
 
     </main>
 
-        @await Component.InvokeAsync("_FooterDefaultComponentPartial")
+    @await Component.InvokeAsync("_FooterDefaultComponentPartial")
 
 </body>
 

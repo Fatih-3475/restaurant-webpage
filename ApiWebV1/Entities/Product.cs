@@ -8,6 +8,6 @@
         public decimal Price { get; set; }
         public string? ProductUrl { get; set; } 
         public int? CategoryId { get; set; }
-        public required Category Category { get; set; }
+        public Category? Category { get; set; }
     }
 }
