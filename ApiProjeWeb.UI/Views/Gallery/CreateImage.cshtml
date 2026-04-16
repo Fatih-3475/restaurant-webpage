@@ -1,0 +1,36 @@
+﻿@model ApiProjeWeb.UI.Dtos.ImageDto.CreateImageDto
+@{
+    ViewData["Title"] = "Yeni Görsel Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+<section class="section">
+    <div class="section-body">
+        <div class="card">
+            <div class="card-header">
+                <h4>Yeni Görsel Ekle</h4>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Başlık</label>
+                        <input type="text" asp-for="Title" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Görsel Seç</label>
+                        <input type="file" asp-for="Photo" class="form-control" />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

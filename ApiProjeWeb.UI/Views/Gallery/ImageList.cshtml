@@ -1,7 +1,7 @@
 ﻿@model List<ResultImageDto>
 @{
     ViewData["Title"] = "Görsel Listesi";
-    Layout = "~/Views/AdminLayout/Index.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <style>
@@ -25,7 +25,7 @@
                     <div class="card-header">
                         <h4>Görsel Galerisi</h4>
                         <div class="card-header-action">
-                            <a href="/Admin/Image/CreateImage" class="btn btn-primary"><i class="fa fa-plus"></i> Yeni Görsel Ekle</a>
+                            <a href="/Gallery/CreateImage" class="btn btn-primary">Yeni Görsel Ekle</a>
                         </div>
                     </div>
                     <div class="card-body">
@@ -39,27 +39,21 @@
                                             {
                                                 <article class="col-md-4 col-sm-6 portfolio-item">
                                                     <div class="portfolio-thumb">
-                                                        <a href="@item.ImageUrl" target="_blank" class="main-link">
-                                                            <img class="img-responsive img-center" src="@item.ImageUrl" alt="@item.Title">
+                                                        <a href="@($"https://localhost:7118{item.ImageUrl}")" target="_blank" class="main-link">
+                                                            <img class="img-responsive img-center" src="@($"https://localhost:7118{item.ImageUrl}")" alt="@item.Title">
                                                             <span class="project-title">@item.Title</span>
                                                             <span class="overlay-mask"></span>
                                                         </a>
-                                                        <a class="enlarge" href="@item.ImageUrl" title="@item.Title">
+                                                        <a class="enlarge" href="@($"https://localhost:7118{item.ImageUrl}")" title="@item.Title">
                                                             <i class="fa fa-expand fa-fw"></i>
                                                         </a>
-                                                        <a class="link" href="/Admin/Image/UpdateImage/@item.ImageId">
+                                                        <a class="link" href="/Gallery/UpdateImage/@item.ImageId">
                                                             <i class="fa fa-edit fa-fw"></i>
                                                         </a>
                                                     </div>
                                                     <div class="mt-2 text-center">
-                                                        <a href="/Admin/Image/DeleteImage/@item.ImageId" 
-                                                           class="btn btn-danger btn-sm" 
-                                                           onclick="return confirm('Bu görseli silmek istediğinize emin misiniz?')">
-                                                            <i class="fa fa-trash"></i> Sil
-                                                        </a>
-                                                        <a href="/Admin/Image/UpdateImage/@item.ImageId" class="btn btn-info btn-sm">
-                                                            <i class="fa fa-pen"></i> Güncelle
-                                                        </a>
+                                                        <a href="/Gallery/DeleteImage/@item.ImageId" class="btn btn-danger">Sil</a>
+                                                        <a href="/Gallery/UpdateImage/@item.ImageId" class="btn btn-success">Güncelle</a>
                                                     </div>
                                                 </article>
                                             }

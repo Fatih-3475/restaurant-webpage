@@ -1,33 +1,15 @@
 ﻿@model List<ApiProjeWeb.UI.Dtos.ProductDtos.ResultProductDto>
 
 <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+    @{
+        var groupedCategories = Model.GroupBy(x => new { x.CategoryId, x.CategoryName }).ToList();
+    }
 
-    <!-- Tüm Menü -->
-    <div class="tab-pane fade active show" id="menu-all">
-        <div class="tab-header text-center">
-            <p>Menü</p>
-            <h3>Tüm Lezzetler</h3>
-        </div>
-
-        <div class="row gy-5">
-            @foreach (var item in Model)
-            {
-                <div class="col-lg-4 menu-item">
-                    <a href="@item.ProductUrl" class="glightbox">
-                        <img src="@item.ProductUrl" class="menu-img img-fluid" alt="">
-                    </a>
-                    <h4>@item.ProductName</h4>
-                    <p class="ingredients">@item.ProductDescription</p>
-                    <p class="price">@item.Price ₺</p>
-                </div>
-            }
-        </div>
-    </div>
-
-    <!-- Kategorilere göre -->
-    @foreach (var categoryGroup in Model.GroupBy(x => new { x.CategoryId, x.CategoryName }))
+    @for (int i = 0; i < groupedCategories.Count; i++)
     {
-        <div class="tab-pane fade" id="menu-@categoryGroup.Key.CategoryId">
+        var categoryGroup = groupedCategories[i];
+
+        <div class="tab-pane fade @(i == 0 ? "active show" : "")" id="menu-@categoryGroup.Key.CategoryId">
             <div class="tab-header text-center">
                 <p>Menü</p>
                 <h3>@categoryGroup.Key.CategoryName</h3>

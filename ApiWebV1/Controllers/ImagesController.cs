@@ -1,59 +1,124 @@
 ﻿using ApiProjeWeb.Context;
 using ApiProjeWeb.Entities;
-using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using ApiWebV1.Dtos.ImageDtos;
 
 namespace ApiWebV1.Controllers
 {
-    public class ImagesController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ImagesController : ControllerBase
     {
         private readonly ApiContext _context;
-        private readonly IMapper _mapper;
-        public ImagesController(ApiContext context, IMapper mapper)
+
+        public ImagesController(ApiContext context)
         {
             _context = context;
-            _mapper = mapper;
         }
+
         [HttpGet]
         public IActionResult ImageList()
         {
             var values = _context.Images.ToList();
             return Ok(values);
         }
-        [HttpPost]
-        public IActionResult CreateImage(CreateImageDto createImageDto)
-        {
-            // _context.Images.Add(Image);    // mapping işlemi yapıcaz burda
-            //_context.SaveChanges();
-            var value = _mapper.Map<Image>(createImageDto);
-            _context.Images.Add(value);
-            _context.SaveChanges();
-            return Ok("Görsel ekleme işlemi başarılı");
-        }
 
-        [HttpDelete]
-        public IActionResult DeleteImage(int id)
-        {
-            var value = _context.Images.Find(id);
-            _context.Images.Remove(value!);
-            _context.SaveChanges();
-            return Ok("Görsel silme işlemi başarılı");
-        }
-
-        [HttpGet("GetImage/{id}")]
+        [HttpGet("{id}")]
         public IActionResult GetImage(int id)
         {
             var value = _context.Images.Find(id);
+            if (value == null)
+            {
+                return NotFound("Görsel bulunamadı");
+            }
+
             return Ok(value);
         }
-        [HttpPut]
-        public IActionResult UpdateImage(UpdateImageDto updateImageDto)
+
+        [HttpPost]
+        public async Task<IActionResult> CreateImage([FromForm] CreateImageDto createImageDto)
         {
-            var value = _mapper.Map<Image>(updateImageDto);
-            _context.Images.Update(value);
+            if (createImageDto.Photo == null || createImageDto.Photo.Length == 0)
+            {
+                return BadRequest("Lütfen bir görsel seçin.");
+            }
+
+            var extension = Path.GetExtension(createImageDto.Photo.FileName);
+            var fileName = Guid.NewGuid().ToString() + extension;
+            var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
+
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            var filePath = Path.Combine(folderPath, fileName);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await createImageDto.Photo.CopyToAsync(stream);
+            }
+
+            var image = new Image
+            {
+                Title = createImageDto.Title,
+                ImageUrl = "/images/" + fileName
+            };
+
+            _context.Images.Add(image);
+            _context.SaveChanges();
+
+            return Ok("Görsel ekleme işlemi başarılı");
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateImage([FromForm] UpdateImageDto updateImageDto)
+        {
+            var value = _context.Images.Find(updateImageDto.ImageId);
+            if (value == null)
+            {
+                return NotFound("Görsel bulunamadı");
+            }
+
+            value.Title = updateImageDto.Title;
+
+            if (updateImageDto.Photo != null && updateImageDto.Photo.Length > 0)
+            {
+                var extension = Path.GetExtension(updateImageDto.Photo.FileName);
+                var fileName = Guid.NewGuid().ToString() + extension;
+                var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
+
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
+                var filePath = Path.Combine(folderPath, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await updateImageDto.Photo.CopyToAsync(stream);
+                }
+
+                value.ImageUrl = "/images/" + fileName;
+            }
+
             _context.SaveChanges();
             return Ok("Görsel güncelleme işlemi başarılı");
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteImage(int id)
+        {
+            var value = _context.Images.Find(id);
+            if (value == null)
+            {
+                return NotFound("Görsel bulunamadı");
+            }
+
+            _context.Images.Remove(value);
+            _context.SaveChanges();
+            return Ok("Görsel silme işlemi başarılı");
         }
     }
 }
