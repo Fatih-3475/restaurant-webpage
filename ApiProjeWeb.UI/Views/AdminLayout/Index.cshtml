@@ -1,45 +1,177 @@
-﻿
-<!DOCTYPE html>
-<html lang="en">
+﻿@model ApiProjeWeb.UI.Models.AdminDashboardViewModel
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml"; ;
+    ViewData["Title"] = "Dashboard";
+}
 
-
-<!-- basic-table.html  21 Nov 2019 03:55:20 GMT -->
-@await Component.InvokeAsync("_HeadAdminLayoutComponentPartial")
-
-
-<body>
-  <div class="loader"></div>
-  <div id="app">
-    <div class="main-wrapper main-wrapper-1">
-        @await Component.InvokeAsync("_NavbarAdminLayoutComponentPartial")
-        @await Component.InvokeAsync("_SidebarAdminLayoutComponentPartial")
-        
-      
-      <!-- Main Content -->
-            <div class="main-content">
-      @RenderBody()
-                @await Component.InvokeAsync("_RightSettingsAdminLayoutComponentPartial")
-            </div>
-      
-      <footer class="main-footer">
-        <div class="footer-left">
-          <a href="templateshub.net">Templateshub</a>
-        </div>
-        <div class="footer-right">
-        </div>
-      </footer>
+<section class="section">
+    <div class="section-header">
+        <h1>Dashboard</h1>
     </div>
-  </div>
-  <!-- General JS Scripts -->
-  <script src="/otika-bootstrap-admin-template/assets/js/app.min.js"></script>
-  <!-- JS Libraies -->
-  <!-- Page Specific JS File -->
-  <!-- Template JS File -->
-  <script src="/otika-bootstrap-admin-template/assets/js/scripts.js"></script>
-  <!-- Custom JS File -->
-  <script src="/otika-bootstrap-admin-template/assets/js/custom.js"></script>
-</body>
 
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div class="card card-statistic-1">
+                <div class="card-icon bg-primary">
+                    <i data-feather="grid"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Kategori Sayısı</h4>
+                    </div>
+                    <div class="card-body">
+                        @Model.CategoryCount
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<!-- basic-table.html  21 Nov 2019 03:55:20 GMT -->
-</html>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div class="card card-statistic-1">
+                <div class="card-icon bg-danger">
+                    <i data-feather="package"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Ürün Sayısı</h4>
+                    </div>
+                    <div class="card-body">
+                        @Model.ProductCount
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div class="card card-statistic-1">
+                <div class="card-icon bg-warning">
+                    <i data-feather="calendar"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Rezervasyon</h4>
+                    </div>
+                    <div class="card-body">
+                        @Model.ReservationCount
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div class="card card-statistic-1">
+                <div class="card-icon bg-success">
+                    <i data-feather="mail"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Okunmamış Mesaj</h4>
+                    </div>
+                    <div class="card-body">
+                        @Model.UnreadMessageCount
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Ürün İstatistikleri</h4>
+                </div>
+                <div class="card-body">
+                    <p><strong>Ortalama Fiyat:</strong> @Model.AverageProductPrice.ToString("0.00") ₺</p>
+                    <p><strong>En Pahalı Ürün:</strong> @Model.MostExpensiveProductName - @Model.MostExpensiveProductPrice.ToString("0.00") ₺</p>
+                    <p><strong>En Ucuz Ürün:</strong> @Model.CheapestProductName - @Model.CheapestProductPrice.ToString("0.00") ₺</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Kategoriye Göre Ürün Sayısı</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        @foreach (var item in Model.ProductCountByCategory)
+                        {
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                @item.Key
+                                <span class="badge badge-primary badge-pill">@item.Value</span>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Son Mesajlar</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Ad Soyad</th>
+                                    <th>Konu</th>
+                                    <th>Tarih</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.LastMessages)
+                                {
+                                    <tr>
+                                        <td>@item.NameSurname</td>
+                                        <td>@item.Subject</td>
+                                        <td>@item.SendData.ToString("dd.MM.yyyy")</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <a href="/Message/MessageList/" class="btn btn-primary">Tüm Mesajlar</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Son Rezervasyonlar</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Ad Soyad</th>
+                                    <th>Kişi</th>
+                                    <th>Tarih</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.LastReservations)
+                                {
+                                    <tr>
+                                        <td>@item.NameSurname</td>
+                                        <td>@item.CountOfPeople</td>
+                                        <td>@item.ReservationDate.ToString("dd.MM.yyyy")</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <a href="/Reservation/ReservationList/" class="btn btn-warning">Tüm Rezervasyonlar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
