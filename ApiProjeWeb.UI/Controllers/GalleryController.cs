@@ -1,10 +1,12 @@
 ﻿using ApiProjeWeb.UI.Dtos.ImageDto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 
 namespace ApiProjeWeb.UI.Controllers
 {
+    [Authorize]
     public class GalleryController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

@@ -1,10 +1,12 @@
 ﻿using ApiProjeWeb.UI.Dtos.WhyChooseYummyDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 
 namespace ApiProjeWeb.UI.Controllers
 {
+    [Authorize]
     public class WhyChooseYummyController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

@@ -1,5 +1,6 @@
 ﻿using ApiProjeWeb.UI.Dtos.CategoryDtos;
 using ApiProjeWeb.UI.Dtos.ProductDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
@@ -7,6 +8,7 @@ using System.Text;
 
 namespace ApiProjeWeb.UI.Controllers
 {
+    [Authorize]
     public class ProductController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

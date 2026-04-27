@@ -1,10 +1,12 @@
 ﻿using ApiProjeWeb.UI.Dtos.TestimonialDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 
 namespace ApiProjeWeb.UI.Controllers
 {
+    [Authorize]
     public class TestimonialController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
