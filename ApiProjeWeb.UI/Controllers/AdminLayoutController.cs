@@ -5,9 +5,11 @@ using ApiProjeWeb.UI.Dtos.ReservationDto;
 using ApiProjeWeb.UI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ApiProjeWeb.UI.Controllers
 {
+    [Authorize]
     public class AdminLayoutController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

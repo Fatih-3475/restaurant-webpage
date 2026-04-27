@@ -1,10 +1,12 @@
 ﻿using ApiProjeWeb.UI.Dtos.ContactDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 
 namespace ApiProjeWeb.UI.Controllers
 {
+    [Authorize]
     public class ContactController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

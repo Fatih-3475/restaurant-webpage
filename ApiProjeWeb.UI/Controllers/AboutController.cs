@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ApiProjeWeb.UI.Controllers
 {
+    [Authorize]
     public class AboutController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
